@@ -6,13 +6,13 @@ echo Run date: $DATE
 # Read through a text file or a series of text files, one daily and one for each day
 # of the week (for those once-per-week or once-in-a-blue-moon comic updates).
 # 
-# There have been at *least* four versions of this script before - more, really, going back
+# There have been at least four versions of this script before - more, really, going back
 # to Solaris csh, VBScript, etc.  Shouldn't this be at least version 0.4?
 #
 # It might be better to take the output of the parse bookmarks script or some other
 # text file and iterate through that in order to read the comics.  That would 
-# let adding a comic be that much easier.  Although this is still going to be pretty easy.
-#
+# let adding a comic be easier.  Although this is still going to be pretty easy.
+##
 # NEXT: get the day of the week
 #       for the day of the week, run the everyday comma-delimited table of comic sites
 #       then run the comma-delimited table for the day of the week
@@ -84,7 +84,7 @@ else
   echo "Yay, more comics!"
 fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/9chickweedlane http://www.gocomics.com/drabble http://www.unshelved.com/ http://americancaptaincomic.tumblr.com/tagged/comic 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/9chickweedlane http://www.gocomics.com/drabble http://www.oursuperadventure.com/ http://www.unshelved.com/ 2> /dev/null &
 # 
 # http://www.gocomics.com/cafeconleche
 # http://www.gocomics.com/homeandaway/
@@ -93,6 +93,9 @@ fi
 # http://www.modestmedusa.com/ 
 # http://hijinksensue.com/
 # http://www.gocomics.com/boomerangs
+# http://notinventedhe.re/
+# http://www.gocomics.com/culdesac
+# http://americancaptaincomic.tumblr.com/tagged/comic
 #  
 echo ""
 echo -n "On to the next comics (y/n)?"
@@ -118,7 +121,7 @@ else
   echo "Yay, more comics!"
 fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/wallace-the-brave/ http://www.gocomics.com/nestheads/ http://notinventedhe.re/ http://www.gocomics.com/theknightlife http://shermanslagoon.com 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/wallace-the-brave/ http://www.gocomics.com/nestheads/ http://www.gocomics.com/theknightlife http://shermanslagoon.com 2> /dev/null &
 # 
 echo ""
 echo -n "On to the next comics (y/n)?"
@@ -144,7 +147,7 @@ else
   echo "Yay, more comics!"
 fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/pickles http://www.gocomics.com/monty http://www.gocomics.com/arloandjanis http://www.gocomics.com/getfuzzy/ http://www.gocomics.com/culdesac 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/pickles http://www.gocomics.com/monty http://www.gocomics.com/arloandjanis 2> /dev/null &
 #
 echo ""
 echo -n "On to the next comics (y/n)?"
@@ -170,7 +173,7 @@ else
   echo "Yay, more comics!"
 fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://babyblues.com/ http://www.gocomics.com/daddyshome http://www.gocomics.com/pearlsbeforeswine http://dieselsweeties.com/ http://nedroid.com/ http://www.lunarbaboon.com/ http://edmocentral.com/slothsandtrolleys/ 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://babyblues.com/ http://www.gocomics.com/daddyshome http://www.gocomics.com/pearlsbeforeswine http://dieselsweeties.com/ http://nedroid.com/ 2> /dev/null &
 #
 echo ""
 echo -n "On to the next comics (y/n)?"
@@ -196,7 +199,7 @@ else
   echo "Yay, more comics!"
 fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://www.drivecomic.com/ http://www.theglassscientists.com/ http://amultiverse.com/ http://www.gogetaroomie.com/ http://explosm.net/ 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://www.drivecomic.com/ http://www.gogetaroomie.com/ http://explosm.net/ 2> /dev/null &
 #
 # http://carbon-comic.com/ 
 # http://www.gocomics.com/shoe
@@ -215,6 +218,28 @@ fi
 # http://asofterworld.com/ 
 # http://www.gocomics.com/basicinstructions
 # http://www.pbfcomics.com/
+# http://www.threewordphrase.com 
+# http://www.sinfest.net/
+# http://www.juliawertz.com/category/comics/
+# http://www.totempole666.com/comic/
+# http://www.totempole666.com/comic/swallowing-dark-1/
+#
+CONDITION=`date '+%A'`
+#
+if [ $CONDITION = Monday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.theglassscientists.com/ http://amultiverse.com/ http://edmocentral.com/slothsandtrolleys/ http://www.lunarbaboon.com/ https://www.lucyknisley.com/comic/ http://www.totempole666.com/comic/ 2> /dev/null &
+fi
 #
 CONDITION=`date '+%A'`
 #
@@ -230,7 +255,37 @@ then
   else
     echo "Yay, more comics!"
   fi
-/opt/google/chrome/chrome --incognito --new-window http://existentialcomics.com/comic/1 http://www.gocomics.com/tinysepuku http://www.gocomics.com/angry-little-girls http://theoatmeal.com/comics http://www.henchgirlcomic.com/ http://strongfemaleprotagonist.com/ http://www.bloomingfaeries.com http://www.konradokonski.com/SITM/ http://superredundant.com/ http://www.gocomics.com/tedrall/ http://www.dead-philosophers.com/ 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://existentialcomics.com/comic/1 http://www.gocomics.com/tinysepuku http://www.henchgirlcomic.com/ http://strongfemaleprotagonist.com/ http://www.bloomingfaeries.com 2> /dev/null & 
+fi
+#
+if [ $CONDITION = Wednesday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.konradokonski.com/SITM/ http://superredundant.com/ http://www.gocomics.com/angry-little-girls 2> /dev/null &
+fi
+#
+if [ $CONDITION = Thursday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/tedrall/ http://www.dead-philosophers.com/ http://theoatmeal.com/comics http://jessfink.com/kwe/ https://lucybellwood.com/comics/ 2> /dev/null &
 fi
 #
 # check out http://keenspot.com/ in general
@@ -281,7 +336,7 @@ then
     echo "Yay, more comics!"
   fi
 #
-/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/toomuchcoffeeman http://zenpencils.com/ http://www.gocomics.com/doonesbury http://www.gocomics.com/stonesoup http://starcrossedonline.com/ http://www.cad-comic.com/cad 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/toomuchcoffeeman http://zenpencils.com/ http://www.gocomics.com/doonesbury http://www.gocomics.com/stonesoup http://starcrossedonline.com/ http://www.cad-comic.com/cad http://www.gocomics.com/getfuzzy/ 2> /dev/null &
 #
   echo ""
   echo -n "On to the next comics (y/n)?"
@@ -294,7 +349,7 @@ then
     echo "Yay, more comics!"
   fi
 # 
-/opt/google/chrome/chrome --incognito --new-window http://rice-boy.com/vattu/ http://www.powernapcomic.com/ http://www.threewordphrase.com http://outthere.keenspot.com/ http://www.myextralife.com/ http://ourvaluedcustomers.blogspot.com/ http://www.kiwiblitz.com/ https://www.tumblr.com/search/chuck+and+beans 2> /dev/null &
+/opt/google/chrome/chrome --incognito --new-window http://rice-boy.com/vattu/ http://www.powernapcomic.com/ http://outthere.keenspot.com/ http://www.myextralife.com/ http://ourvaluedcustomers.blogspot.com/ http://www.kiwiblitz.com/ https://www.tumblr.com/search/chuck+and+beans 2> /dev/null &
 fi
 #
 echo ""
