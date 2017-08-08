@@ -1,0 +1,406 @@
+#!/bin/sh
+#
+DATE=`date +"%Y%m%d"`
+echo Run date: $DATE
+#
+# Read through a text file or a series of text files, one daily and one for each day
+# of the week (for those once-per-week or once-in-a-blue-moon comic updates).
+# 
+# There have been at least four versions of this script before - more, really, going back
+# to Solaris csh, VBScript, etc.  Shouldn't this be at least version 0.4?
+#
+# It might be better to take the output of the parse bookmarks script or some other
+# text file and iterate through that in order to read the comics.  That would 
+# let adding a comic be easier.  Although this is still going to be pretty easy.
+##
+# NEXT: get the day of the week
+#       for the day of the week, run the everyday comma-delimited table of comic sites
+#       then run the comma-delimited table for the day of the week
+#       run them only four at time
+#       that way, non-programmers can just add to a table for their convenience
+#
+#       1) make the tables from this file
+#       2) parse an example table
+#
+# as a workaround for interactive scripting control:
+#   a. write a temp file
+#   b. open a browser window - nope, need some way to check if the browser is open
+#   c. maybe check the process table every second?  every two seconds?
+#   d. need to grep for something unusual in the table, though
+#       d.1. maybe "/opt/google/chrome/chrome --incognito --new-window" is unusual enough
+#   e. then fire off another chrome --incognito when the earlier one disappears
+#   
+#  WORKING=`ps aux | grep /opt/google/chrome/chrome | grep -v grep`
+#  echo $WORKING
+#  if [ '$WORKING' != ' ' ]; then sleep 5; echo YES; fi
+#  need to see that $WORKING is not null, then call the function every five seconds to check again
+#  but we need a different test for null since a blank space does not match what grep returns
+#
+#  use `ps aux | grep /opt/google/chrome/chrome | grep -v grep | wc -l` instead
+#  or some syntax of wc (wordcount) ... this gives $WORKING = 0 if there's no chrome
+#  
+#  if [ $WORKING != 0 ]; then echo "we know the script is working because grep returned something"
+#
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/brewsterrockit http://www.gocomics.com/closetohome http://www.sheldoncomics.com/ http://www.gocomics.com/cornered http://pajamadiaries.com http://www.commitstrip.com/ 2> /dev/null &
+#  
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/fminus http://thedevilspanties.com/ http://www.dilbert.com/ http://www.xkcd.com/ http://theawkwardyeti.com/ 2> /dev/null &
+#  
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+# http://www.gocomics.com/watchyourhead
+# http://edgecitycomics.com
+# http://www.gocomics.com/the-awkward-yeti
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/speedbump http://questionablecontent.net/ http://www.smbc-comics.com/ http://www.toothpastefordinner.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/9chickweedlane http://www.gocomics.com/drabble http://www.oursuperadventure.com/ http://www.unshelved.com/ 2> /dev/null &
+# 
+# http://www.gocomics.com/cafeconleche
+# http://www.gocomics.com/homeandaway/
+# http://www.girlswithslingshots.com/
+# http://www.gocomics.com/onaclaireday
+# http://www.modestmedusa.com/ 
+# http://hijinksensue.com/
+# http://www.gocomics.com/boomerangs
+# http://notinventedhe.re/
+# http://www.gocomics.com/culdesac
+# http://americancaptaincomic.tumblr.com/tagged/comic
+# 
+# 
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/lastkiss http://pvponline.com/comic/ http://www.gocomics.com/inthebleachers http://wondermark.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/wallace-the-brave/ http://www.gocomics.com/nestheads/ http://www.gocomics.com/theknightlife http://shermanslagoon.com 2> /dev/null &
+# 
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://retailcomic.com/ http://www.gocomics.com/starslip/ http://www.girlgeniusonline.com/comic.php http://www.gocomics.com/bloom-county/ http://www.leasticoulddo.com/ 2> /dev/null &
+# 
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/pickles http://www.gocomics.com/monty http://www.gocomics.com/arloandjanis http://www.gocomics.com/deep-dark-fears 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/thefuscobrothers http://www.gocomics.com/thekchronicles http://www.mrfitz.com/ http://www.gocomics.com/overboard http://www.ma3comic.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://babyblues.com/ http://www.gocomics.com/daddyshome http://www.gocomics.com/pearlsbeforeswine http://dieselsweeties.com/ http://nedroid.com/ http://www.berkeleymews.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.empoweredcomic.com/ http://www.thelastdiplomat.com/ https://www.penny-arcade.com/comic http://www.peritale.com/ http://jl8comic.tumblr.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.drivecomic.com/ http://www.gogetaroomie.com/ http://explosm.net/ https://warandpeas.com 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://tinasgroove.com/ http://tinkersons.com/ http://www.mutts.com/ http://bizarro.com/ http://prosandconscomic.com/ http://intelligentlifecomics.com/ http://donthitsave.com/ 2> /dev/null &
+#
+echo ""
+echo -n "On to the next comics (y/n)?"
+read ans
+if [ "$ans" = "n" ] 
+then
+  echo "Program halt."
+  exit 1
+else
+  echo "Yay, more comics!"
+fi
+#
+#
+# http://carbon-comic.com/ 
+# http://www.gocomics.com/shoe
+# http://hugecartoons.com/ 
+# http://dakotamcfadzean.tumblr.com/tagged/comics 
+# http://joscribbles.tumblr.com/tagged/comics 
+# http://www.lefthandedtoons.com/newtolht.php 
+# http://www.safelyendangered.com/ 
+# http://www.briangordonillustration.com/chuckandbeans/
+# http://www.gocomics.com/pibgorn 
+# http://www.gocomics.com/incidentalcomics
+# http://forlackofabettercomic.com/ 
+# http://www.amazingsuperpowers.com/
+# http://activatecomix.com/
+# could get the day of the week here and do the next chrome window only on Wednesday or Sunday
+# http://asofterworld.com/ 
+# http://www.gocomics.com/basicinstructions
+# http://www.pbfcomics.com/
+# http://www.threewordphrase.com 
+# http://www.sinfest.net/
+# http://www.juliawertz.com/category/comics/
+# http://www.totempole666.com/comic/
+# http://www.totempole666.com/comic/swallowing-dark-1/
+# http://imgur.com/gallery/NzO30
+#
+CONDITION=`date '+%A'`
+#
+if [ $CONDITION = Monday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.theglassscientists.com/ http://amultiverse.com/ http://edmocentral.com/slothsandtrolleys/ http://www.lunarbaboon.com/ https://www.lucyknisley.com/comic/ http://www.totempole666.com/comic/ 2> /dev/null &
+fi
+#
+CONDITION=`date '+%A'`
+#
+if [ $CONDITION = Tuesday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://existentialcomics.com/comic/1 http://www.gocomics.com/tinysepuku http://www.henchgirlcomic.com/ http://strongfemaleprotagonist.com/ http://www.bloomingfaeries.com 2> /dev/null & 
+fi
+#
+if [ $CONDITION = Wednesday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.konradokonski.com/SITM/ http://superredundant.com/ http://www.gocomics.com/angry-little-girls http://poorlydrawnlines.com/ https://www.instagram.com/planetprudence/ http://thepigeongazette.tumblr.com/ 2> /dev/null &
+fi
+#
+if [ $CONDITION = Thursday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/tedrall/ http://www.dead-philosophers.com/ http://theoatmeal.com/comics http://jessfink.com/kwe/ https://lucybellwood.com/comics/ http://lardwantsworldpeace.com/ 2> /dev/null &
+fi
+#
+if [ $CONDITION = Friday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://dykestowatchoutfor.com/
+fi
+#
+#
+# check out http://keenspot.com/ in general
+# 
+# if [ $CONDITION = Wednesday ]
+# then
+# sleep 70
+# /opt/google/chrome/chrome --incognito --new-window http://weirdingwillows.keenspot.com/ http://striptease.keenspot.com/ http://noroomformagic.keenspot.com/ http://fallouttoyworks.keenspot.com/ http://twenty-seven.keenspot.com/ 2> /dev/null & 
+# fi
+# 
+if [ $CONDITION = Saturday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/thecity/ http://www.gocomics.com/tomthedancingbug http://www.harkavagrant.com/ http://www.gocomics.com/jen-sorensen http://oglaf.com/ http://poorlydrawnlines.com/ 2> /dev/null & 
+#
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+/opt/google/chrome/chrome --incognito --new-window http://c.urvy.org/ http://www.henchgirlcomic.com/ http://www.ohjoysextoy.com/ http://strongfemaleprotagonist.com/ http://www.konradokonski.com/SITM/ http://superredundant.com/ http://www.gocomics.com/tedrall/ 2> /dev/null &
+fi
+#
+if [ $CONDITION = Sunday ]
+then
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+#
+/opt/google/chrome/chrome --incognito --new-window http://www.gocomics.com/toomuchcoffeeman http://zenpencils.com/ http://www.gocomics.com/doonesbury http://www.gocomics.com/stonesoup http://starcrossedonline.com/ http://www.cad-comic.com/cad http://www.gocomics.com/getfuzzy/ http://www.meekcomic.com/ 2> /dev/null &
+#
+  echo ""
+  echo -n "On to the next comics (y/n)?"
+  read ans
+  if [ "$ans" = "n" ] 
+  then
+    echo "Program halt."
+    exit 1
+  else
+    echo "Yay, more comics!"
+  fi
+# 
+/opt/google/chrome/chrome --incognito --new-window http://rice-boy.com/vattu/ http://www.powernapcomic.com/ http://outthere.keenspot.com/ http://www.myextralife.com/ http://ourvaluedcustomers.blogspot.com/ http://www.kiwiblitz.com/ https://www.tumblr.com/search/chuck+and+beans http://thermohalia.com/ 2> /dev/null &
+fi
+#
+echo ""
+echo "That's all the comics for today!"
+echo ""
+#
+# need to update Github
+# with the most recent sites
+# and update this with the real code
+#
